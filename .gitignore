@@ -1,0 +1,11 @@
+# Enviroments
+venv/
+
+# Cache
+__pycache__
+
+# Locale static
+staticfiles
+
+# Database
+db.sqlite3
