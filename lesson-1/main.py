@@ -9,7 +9,9 @@ dp = Dispatcher()
 
 @dp.message()
 async def echo_upper(message: types.Message):
-    await message.answer(text=message.text.upper())
+    if message.text.count(' ') >= 1:
+        print(message.text.count(' '))
+        await message.answer(text=message.text.upper())
 
 
 async def main():
