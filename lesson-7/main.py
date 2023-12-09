@@ -32,7 +32,9 @@ async def vote_command(message: types.Message):
         [InlineKeyboardButton(text='❤️',
                               callback_data='like')],
         [InlineKeyboardButton(text='👎',
-                              callback_data='dislike')]
+                              callback_data='dislike')],
+        [InlineKeyboardButton(text='Главное меню',
+                              callback_data='main')]
     ]
     ikb = InlineKeyboardMarkup(row_width=2,
                                inline_keyboard=ibuttons)
@@ -47,8 +49,14 @@ async def vote_command(message: types.Message):
 async def vote_callback(callback: types.CallbackQuery):
     if callback.data == 'like':
         await callback.answer(text='You like it')
-    if callback.data == 'dislike':
+    elif callback.data == 'dislike':
         await callback.answer(text='You didn\'t like it')
+    elif callback.data == 'main':
+        await callback.message.answer(text='Welcome to main menu!',
+                                      reply_markup=kb)
+        await callback.message.delete()
+        await callback.answer()
+    
 
 
 async def main():
