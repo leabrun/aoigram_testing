@@ -56,7 +56,6 @@ async def vote_callback(callback: types.CallbackQuery):
                                       reply_markup=kb)
         await callback.message.delete()
         await callback.answer()
-    
 
 
 async def main():
